@@ -1,0 +1,39 @@
+<div>
+  <span
+    ng-if="myInfo.user._userSet === false">
+    Not Signed Up Yet.   <a ui-sref="public.signup"> Sign up Now! </a>
+  </span>
+  <br>
+  <span
+  ng-if="myInfo.user._userSet === true">
+    First Name: {{myInfo.user._firstName}}
+  </span>
+<br>
+  <span
+  ng-if="myInfo.user._userSet === true">
+    Last Name: {{myInfo.user._lastName}}
+  </span>
+<br>
+  <span
+    ng-if="myInfo.user._userSet === true">
+      Email: {{myInfo.user._email}}
+  </span>
+  <br>
+  <span
+    ng-if="myInfo.user._userSet === true">
+      Phone: {{myInfo.user._phone}}
+  </span>
+  <br>
+  <span
+    ng-if="myInfo.user._userSet === true">
+      Favorite Item: {{myInfo.user._favItem.name}}
+  </span>
+  <br>
+  <span
+    ng-if="myInfo.user._userSet === true">
+      {{myInfo.user._favItem.description}}
+  </span>
+  <br>
+  <br>
+<img src="{{myInfo.user._imgSource}}" />
+</div>

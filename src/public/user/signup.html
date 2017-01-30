@@ -1,0 +1,66 @@
+<div>
+  <h1>Sign up for our newsletter</h1>
+<form name='regForm' novalidate>
+
+        <input type="text" name="firstName" placeholder="* First name" style="background-color:white; color:black"
+          ng-model="reg.user.firstName"
+          required>
+
+          <span
+            ng-if=" regForm.firstName.$error.required && regForm.firstName.$touched">
+            First name is required
+          </span>
+          <br>
+
+          <input type="text" name="lastName" placeholder="* Last name" style="background-color:white; color:black"
+            ng-model="reg.user.lastName"
+            required>
+
+            <span
+              ng-if=" regForm.lastName.$error.required && regForm.lastName.$touched">
+              Last name is required
+            </span>
+            <br>
+
+        <input type="email" name="email" placeholder="* Email" style="background-color:white; color:black"
+          ng-model="reg.user.email"
+          required>
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" placeholder="* Phone ###-###-####" style="background-color:white; color:black"
+          ng-model="reg.user.phone"
+          required
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span
+            ng-if="(regForm.phone.$error.required || regForm.phone.$invalid) && regForm.phone.$touched">
+            Phone number is required and it must be in the format ###-###-####.
+          </span>
+          <br>
+
+          <input type="text" name="favItem" placeholder="Favorite menu item code" style="background-color:white; color:black"
+            ng-model="reg.user.favItem">
+        
+            <br>
+
+        <button
+          ng-disabled="regForm.$invalid"
+          ng-click="reg.submit()">Submit</button>
+
+          <!-- <div style="margin-top: 10px;">
+            Form valid? {{ regForm.$valid }}
+          </div> -->
+
+          <span
+            ng-if="(reg.itemNotFound === true)">
+            No such menu number exists.
+          </span>
+
+          <span
+            ng-if="(reg.saveSuccessful === true)">
+            Your information has been saved.
+          </span>
+      </form>
+</div>
